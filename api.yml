@@ -1,0 +1,24 @@
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://discovery/eureka/
+
+jwt:
+  header: Authorization
+  param: token
+  secret: awesome
+  expiration: 604800000
+  prefix: bearer
+  route:
+    authentication:
+      path: auth
+      token: token
+      refresh: refresh
+
+logging.config: classpath:log4j2-docker.xml
+
+server.port: 80
